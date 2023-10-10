@@ -22,8 +22,8 @@
     </div>
 	<center><big><a href="signup.php">Sign up</a></big></center>
 </body>
-</html>
 
 <?php 
  require 'footer.php'; 
  ?>
+</html>

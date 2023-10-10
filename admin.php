@@ -51,6 +51,9 @@
                     ?>
                 </tbody>
             </table>
+            <div class="back-to-index">
+            <a href="home.php" class="btn-back-to-index">Back to Home</a>
+        </div>
         </div>
     </div>
 </body>

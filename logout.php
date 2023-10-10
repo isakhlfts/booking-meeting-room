@@ -12,7 +12,7 @@
 .button design
 
 .closebtn {
-  margin-left: 20px;
+  margin-left: 15px;
   color: white;
   font-weight: bold;
   float: right;

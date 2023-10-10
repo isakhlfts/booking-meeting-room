@@ -41,4 +41,8 @@ $peminjamData = array(
         </table>
     </div>
 </body>
-</html>
+
+<?php 
+ require 'footer.php'; 
+ ?>
+ </html>

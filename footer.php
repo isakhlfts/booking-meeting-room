@@ -1,5 +1,5 @@
 
 <footer>
-	<center><br><p>Footer<br>
+	<center><br><p>Copyright ╚(•⌂•)╝<br>
 	Created ISAAAA</p></center>
 </footer>

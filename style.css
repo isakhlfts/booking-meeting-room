@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    background-image: url('Pemkab.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Atur agar gambar background mencakup seluruh halaman */
 }
 
 .container {
@@ -28,14 +31,14 @@ body {
     display: block;
     margin-bottom: 10px;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #d3c18a;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .user-links a:hover, .admin-links a:hover, .schedule-links a:hover {
-    background-color: #45a049;
+    background-color: #d3c18a;
 }
 /*------------------------------------------------------------------------------------------*/
 /* CSS for Admin Panel */

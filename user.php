@@ -22,8 +22,11 @@
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required><br><br>
 
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" required><br><br>
+        <label for="time">Select Time:</label>
+            <select class="form-control" name="time">
+                <option value="pagi">08.00 - 11.00 WIB</option>
+                <option value="siang">13.00 - 16.00 WIB</option>
+            </select><br>
 
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea><br><br>

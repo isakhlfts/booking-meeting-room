@@ -7,7 +7,7 @@ session_start();
 	 	if(isset($_SESSION["userId"])){
 	 		require 'home.php';
 	 	}else{
-	 		require 'logoutdata.php';
+	 		require 'logout.php';
 	 	}	 
 
 	 	?>

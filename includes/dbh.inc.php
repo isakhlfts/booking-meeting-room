@@ -3,7 +3,7 @@
 $servername="localhost";
 $dbusername="root";
 $password="";
-$dBName="loginsystem";
+$dBName="booking";
 
 $conn=mysqli_connect($servername,$dbusername,$password,$dBName);
 

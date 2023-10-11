@@ -19,8 +19,8 @@
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required><br><br>
+        <label for="date">Select Date:</label>
+            <input type="date" class="form-control" name="date" min="<?php echo date('Y-m-d'); ?>"><br>
 
         <label for="time">Select Time:</label>
             <select class="form-control" name="time">
@@ -33,6 +33,14 @@
 
         <input type="submit" value="Submit">
     </form>
+    <div id="submit-message" style="display: none;">
+            <p>Formulir telah berhasil disubmit!</p>
+        </div>
+        <script type="text/javascript">
+        function showSubmitMessage() {
+            document.getElementById('submit-message').style.display = 'block';
+        }
+    </script>
 </div>
 </body>
 <?php 

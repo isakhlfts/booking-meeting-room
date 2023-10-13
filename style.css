@@ -31,14 +31,14 @@ body {
     display: block;
     margin-bottom: 10px;
     padding: 10px 20px;
-    background-color: #d3c18a;
+    background-color: #7d6738;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .user-links a:hover, .admin-links a:hover, .schedule-links a:hover {
-    background-color: #d3c18a;
+    background-color: #7d6738;
 }
 /*------------------------------------------------------------------------------------------*/
 /* CSS for Admin Panel */
@@ -81,7 +81,7 @@ body.admin {
 }
 
 .pending-requests th {
-    background-color: #4CAF50;
+    background-color: #7d6738;
     color: white;
 }
 
@@ -103,7 +103,7 @@ body.admin {
 }
 
 .approve-btn {
-    background-color: #4CAF50;
+    background-color: #7d6738;
     color: white;
 }
 
@@ -159,7 +159,7 @@ form input, form textarea, form select {
 }
 
 form input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #7d6738;
     color: white;
     border: none;
     padding: 15px 20px;
@@ -208,7 +208,7 @@ body.schedule {
 }
 
 .schedule-table th {
-    background-color: #4CAF50;
+    background-color: #7d6738;
     color: white;
 }
 
@@ -227,12 +227,12 @@ body.schedule {
     font-size: 16px;
     text-decoration: none;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #7d6738;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .btn-back-to-index:hover {
-    background-color: #45a049;
+    background-color: #7d6738;
 }
 

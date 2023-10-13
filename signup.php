@@ -85,4 +85,14 @@
 
  <?php 
  require 'footer.php'; 
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Your existing validation and signup logic...
+
+    // Check if signup is successful
+    if ($signupSuccess) {
+        // Redirect to home page after successful signup
+        header("Location: home.php");
+        exit(); // Ensure that no further code is executed after the redirect
+    }
+}
  ?>

@@ -58,11 +58,6 @@
 	 	}
 	 	 
 	 	?>
-	 	<ul>
-	 	  <li><a class="active" href="#home">Home</a></li>
-	 	  <li><a href="#contact">Contact</a></li>
-	 	  <li><a href="#about">About</a></li>
-	 	</ul>
 	 	<form action="includes/login.inc.php" method="post">
 	 		<br><center><label><h2>SignUp page</h2></h2></label></center>
 	 		<label for="name">User name</label>
@@ -79,9 +74,6 @@
 	 </main>
 </body>
 </html>
-
-
-
 
  <?php 
  require 'footer.php'; 

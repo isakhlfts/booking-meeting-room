@@ -1,10 +1,10 @@
 <?php
 
-
-
-// Code to approve or reject room booking requests
-// You can implement the logic based on your requirements
-
+if (!isset($_SESSION["admin_logged_in"]) || $_SESSION["admin_logged_in"] !== true) {
+    // Admin belum login, alihkan ke halaman login admin
+    header("Location: admin_login.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +58,6 @@
     </div>
 </body>
 <?php 
- require 'footer.php'; 
- ?>
+require 'footer.php'; 
+?>
 </html>

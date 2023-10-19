@@ -38,7 +38,7 @@ $peminjamData = array(
                 <a href="user.php">Pinjam Ruang</a>
             </div>
             <div class="admin-links">
-                <a href="admin.php">Admin</a>
+                <a href="admin_login.php">Admin</a>
             </div>
         </div>
         <h1>Selamat Datang di Sistem Peminjaman Ruang Rapat Pangripta</h1>
@@ -47,7 +47,7 @@ $peminjamData = array(
         <table class="schedule-table">
             <thead>
                 <tr>
-                    <th>Nama Peminjam</th>
+                    <th>Nama</th>
                     <th>Tanggal</th>
                     <th>Waktu</th>
                     <th>Keterangan</th>

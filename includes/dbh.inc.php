@@ -1,34 +1,50 @@
 <?php
 
 $servername="localhost";
-$dbusername="root";
+$username="root";
 $password="";
-$dBName="booking";
+$database="booking";
 
-$conn=mysqli_connect($servername,$dbusername,$password,$dBName);
+$koneksi = new mysqli($servername,$username,$password,$database);
 
-if(!$conn){
-	die("Connection failed: ".mysqli_connect_error());
+if ($koneksi->connect_error) {
+    die("Koneksi ke database gagal: " . $koneksi->connect_error);
 }
 
 
-// Form Peminjaman
-$nama_peminjam = $_POST['nama_peminjam'];
-$tanggal = $_POST['tanggal'];
-$waktu = $_POST['waktu'];
-$keterangan = $_POST['keterangan'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Mendapatkan data dari formulir
+    $name = $_POST["name"];
+    $date = $_POST["date"];
+    $time = $_POST["time"];
+    $description = $_POST["description"];
 
-// SQL untuk memasukkan data ke tabel
-$sql = "INSERT INTO form (nama_peminjam, tanggal, waktu, keterangan)
-        VALUES ('$nama_peminjam', '$tanggal', '$waktu', '$keterangan')";
+    // Menyiapkan perintah SQL INSERT
+    $sql = "INSERT INTO form (name, date, time, description) VALUES (?, ?, ?, ?)";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Peminjaman ruangan berhasil disimpan.";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    // Mempersiapkan pernyataan SQL dengan menggunakan prepared statement
+    $stmt = $koneksi->prepare($sql);
+
+    if ($stmt) {
+        // Mengikat parameter ke pernyataan
+        $stmt->bind_param("ssss", $name, $date, $time, $description);
+
+        // Menjalankan pernyataan SQL
+        if ($stmt->execute()) {
+            echo '<script>alert("Formulir terkirim!");</script>';
+            echo '<script>window.location.href = "home.php";</script>';
+            exit;
+        } else {
+            echo "Kesalahan saat menyimpan data: " . $stmt->error;
+        }
+
+        // Menutup pernyataan
+        $stmt->close();
+    } else {
+        echo "Kesalahan dalam pernyataan SQL: " . $koneksi->error;
+    }
 }
 
-$conn->close();
 ?>
 
 

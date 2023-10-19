@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="container user">
     <h1>Room Booking Form</h1>
-    <form action="process_booking.php" method="post">
+    <form action="dbh.inc.php" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
@@ -38,15 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea><br><br>
 
-        <input type="submit" value="Submit" onclick="showSubmitMessage();">
+        <input type="submit" value="Submit">
     </form>
     <div id="submit-message" style="display: none;">
             <p>Formulir telah berhasil disubmit!</p>
         </div>
+</div>
         <script type="text/javascript">
-        function showSubmitMessage() {
-            document.getElementById('submit-message').style.display = 'block';
-        }
     </script>
 </div>
 </body>

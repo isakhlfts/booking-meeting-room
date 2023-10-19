@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 if (!isset($_SESSION["admin_logged_in"]) || $_SESSION["admin_logged_in"] !== true) {
     // Admin belum login, alihkan ke halaman login admin
     header("Location: admin_login.php");

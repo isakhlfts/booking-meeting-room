@@ -43,6 +43,7 @@ $peminjamData = array(
             <a href="home.php" class="btn-back-to-index">Back to Home</a>
         </div>
     </div>
+
 </body>
 
 <?php 

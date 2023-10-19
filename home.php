@@ -35,10 +35,10 @@ $peminjamData = array(
     <div class="container">
         <div class="navigation">
             <div class="user-links">
-                <a href="user.php">Pengajuan Peminjaman Ruang</a>
+                <a href="user.php">Pinjam Ruang</a>
             </div>
             <div class="admin-links">
-                <a href="admin.php">Panel Admin</a>
+                <a href="admin.php">Admin</a>
             </div>
         </div>
         <h1>Selamat Datang di Sistem Peminjaman Ruang Rapat Pangripta</h1>

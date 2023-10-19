@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST["description"];
 
     // Menyiapkan perintah SQL INSERT
-    $sql = "INSERT INTO form (name, date, time, description) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO form (nama, tanggal, waktu, deskripsi) VALUES (?, ?, ?, ?)";
 
     // Mempersiapkan pernyataan SQL dengan menggunakan prepared statement
     $stmt = $koneksi->prepare($sql);

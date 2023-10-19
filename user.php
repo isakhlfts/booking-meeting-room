@@ -1,9 +1,16 @@
 <?php
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Proses logika formulir di sini
+    // Misalnya, simpan data ke database atau kirim email konfirmasi
 
-// Code to handle form submission and room booking request
-// You can implement the logic based on your requirements
-
+    // Tampilkan notifikasi "Formulir terkirim!"
+    echo '<script>alert("Formulir terkirim!");</script>';
+    
+    // Alihkan kembali ke menu home
+    echo '<script>window.location.href = "home.php";</script>';
+    exit; // Pastikan untuk keluar dari skrip setelah pengalihan
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +38,7 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onclick="showSubmitMessage();">
     </form>
     <div id="submit-message" style="display: none;">
             <p>Formulir telah berhasil disubmit!</p>

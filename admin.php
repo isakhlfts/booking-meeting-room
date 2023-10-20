@@ -80,7 +80,9 @@ if (!$result) {
                         if (isset($row['id'])) {
                         echo '<input type="hidden" name="request_id" value="' . $row['id'] . '">';}
                         echo '<button type="submit" class="reject-btn">Reject</button>';
+                        echo '</form>';    
                         echo '</form>';
+                        echo '</td>';
                         echo '</td>';
                         echo '</tr>';
                     }
@@ -91,7 +93,7 @@ if (!$result) {
                 </tbody>
             </table>
             <div class="back-to-index">
-            <a href="home.php" class="btn-back-to-index">Back to Home</a>
+            <a href="index.php" class="btn-back-to-index">Back to Home</a>
         </div>
         </div>
     </div>

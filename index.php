@@ -1,7 +1,7 @@
 <?php
 // Mengimpor koneksi dari dbh.inc.php
 require "dbh.inc.php";
-$query = "SELECT name, date, time, description FROM form";
+$query = "SELECT name, date, time, description FROM form WHERE status = 'approved'";
 $result = mysqli_query($koneksi, $query);
 
 if (!$result) {

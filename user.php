@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <label for="time">Select Time:</label>
             <select class="form-control" name="time">
-                <option value="pagi">08.00 - 11.00 WIB</option>
-                <option value="siang">13.00 - 16.00 WIB</option>
+                <option value="Pagi (08.00 - 11.00 WIB)">08.00 - 11.00 WIB</option>
+                <option value="Siang (13.00 - 16.00 WIB)">13.00 - 16.00 WIB</option>
             </select><br>
 
         <label for="description">Description:</label>

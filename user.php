@@ -1,14 +1,10 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Proses logika formulir di sini
-    // Misalnya, simpan data ke database atau kirim email konfirmasi
-
     // Tampilkan notifikasi "Formulir terkirim!"
     echo '<script>alert("Formulir terkirim!");</script>';
-    
-    // Alihkan kembali ke menu home
-    echo '<script>window.location.href = "home.php";</script>';
+    // Alihkan kembali ke menu halaman utama
+    echo '<script>window.location.href = "index.php";</script>';
     exit; // Pastikan untuk keluar dari skrip setelah pengalihan
 }
 ?>

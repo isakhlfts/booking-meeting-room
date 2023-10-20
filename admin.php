@@ -6,6 +6,36 @@ if (!isset($_SESSION["admin_logged_in"]) || $_SESSION["admin_logged_in"] !== tru
     header("Location: admin_login.php");
     exit;
 }
+
+// Mengimpor koneksi dari dbh.inc.php
+require "dbh.inc.php";
+
+// Cek apakah form disubmit (approve atau reject)
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_POST['request_id'])) {
+    $action = $_POST['action'];
+    $request_id = $_POST['request_id'];
+
+    if ($action === 'approve') {
+        // Lakukan tindakan persetujuan di sini, misalnya, update status di database
+        $query = "UPDATE form SET status = 'approved' WHERE id = $request_id";
+        mysqli_query($koneksi, $query);
+    } elseif ($action === 'reject') {
+        // Lakukan tindakan penolakan di sini, misalnya, update status di database
+        $query = "UPDATE form SET status = 'rejected' WHERE id = $request_id";
+        mysqli_query($koneksi, $query);
+    }
+}
+
+// Buat query SQL
+$query = "SELECT name, date, time, description FROM form";
+
+// Eksekusi query
+$result = mysqli_query($koneksi, $query);
+
+if (!$result) {
+    die("Error dalam eksekusi query: " . mysqli_error($koneksi));
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,25 +60,33 @@ if (!isset($_SESSION["admin_logged_in"]) || $_SESSION["admin_logged_in"] !== tru
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Sample data for demonstration purposes -->
                     <?php
-                    $requests = [
-                        ['John Doe', '2023-10-15', '10:00', 'Meeting bulanan'],
-                        ['Jane Smith', '2023-10-20', '14:30', 'Pertemuan proyek']
-                    ];
-
-                    foreach ($requests as $request) {
-                        echo '<tr>';
-                        echo '<td>' . $request[0] . '</td>';
-                        echo '<td>' . $request[1] . '</td>';
-                        echo '<td>' . $request[2] . '</td>';
-                        echo '<td>' . $request[3] . '</td>';
+                    // Loop melalui hasil query dan tampilkan data dalam tabel
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row['name'] . "</td>";
+                        echo "<td>" . $row['date'] . "</td>";
+                        echo "<td>" . $row['time'] . "</td>";
+                        echo "<td>" . $row['description'] . "</td>";
                         echo '<td>';
-                        echo '<button class="approve-btn">Approve</button>';
-                        echo '<button class="reject-btn">Reject</button>';
+                        echo '<form method="post">';
+                        echo '<input type="hidden" name="action" value="approve">';
+                        if (isset($row['id'])) {
+                        echo '<input type="hidden" name="request_id" value="' . $row['id'] . '">';}
+                        echo '<button type="submit" class="approve-btn">Approve</button>';
+                        echo '</form>';
+                        echo '<form method="post">';
+                        echo '<input type="hidden" name="action" value="reject">';
+                        if (isset($row['id'])) {
+                        echo '<input type="hidden" name="request_id" value="' . $row['id'] . '">';}
+                        echo '<button type="submit" class="reject-btn">Reject</button>';
+                        echo '</form>';
                         echo '</td>';
                         echo '</tr>';
                     }
+
+                    // Bebaskan hasil query
+                    mysqli_free_result($result);
                     ?>
                 </tbody>
             </table>

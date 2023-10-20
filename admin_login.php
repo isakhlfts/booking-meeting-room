@@ -2,9 +2,9 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validasi kredensial admin (ganti ini sesuai dengan kebutuhan Anda)
+    // Validasi kredensial admin
     $admin_username = "admin"; // Ganti dengan nama pengguna admin yang sebenarnya
-    $admin_password = "admin321"; // Ganti dengan kata sandi admin yang sebenarnya
+    $admin_password = "admin123"; // Ganti dengan kata sandi admin yang sebenarnya
 
     $input_username = $_POST["username"];
     $input_password = $_POST["password"];
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: admin.php");
         exit;
     } else {
-        $login_error = "Nama pengguna atau kata sandi salah.";
+        $login_error = "Nama pengguna atau kata sandi salah!";
     }
 }
 

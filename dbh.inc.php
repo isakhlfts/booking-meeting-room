@@ -11,7 +11,7 @@ if ($koneksi->connect_error) {
     die("Koneksi ke database gagal: " . $koneksi->connect_error);
 }
 
-
+// Untuk user.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Mendapatkan data dari formulir
     $name = $_POST["name"];
@@ -22,23 +22,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Menyiapkan perintah SQL INSERT
     $sql = "INSERT INTO form (name, date, time, description) VALUES (?,?,?,?)";
 
-    // Mempersiapkan pernyataan SQL dengan menggunakan prepared statement
+    // Mempersiapkan statement SQL dengan menggunakan prepared statement
     $stmt = $koneksi->prepare($sql);
-
     if ($stmt) {
-        // Mengikat parameter ke pernyataan
         $stmt->bind_param("ssss", $name, $date, $time, $description);
-
-        // Menjalankan pernyataan SQL
         if ($stmt->execute()) {
             echo '<script>alert("Formulir terkirim!");</script>';
-            echo '<script>window.location.href = "home.php";</script>';
+            echo '<script>window.location.href = "index.php";</script>';
             exit;
         } else {
             echo "Kesalahan saat menyimpan data: " . $stmt->error;
         }
 
-        // Menutup pernyataan
+        // Menutup statement
         $stmt->close();
     } else {
         echo "Kesalahan dalam pernyataan SQL: " . $koneksi->error;

@@ -1,12 +1,18 @@
 <?php
-// Sample data for demonstration purposes
-$peminjamData = array(
-    array('Nama Peminjam 1', '2023-10-15', '10:00', 'Meeting bulanan'),
-    array('Nama Peminjam 2', '2023-10-20', '14:30', 'Pertemuan proyek'),
-    // Add more data as needed
-);
+// Mengimpor koneksi dari dbh.inc.php
+require "dbh.inc.php";
 
+// Buat query SQL
+$query = "SELECT name, date, time, description FROM form";
+
+// Eksekusi query
+$result = mysqli_query($koneksi, $query);
+
+if (!$result) {
+    die("Error dalam eksekusi query: " . mysqli_error($koneksi));
+}
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -45,27 +51,31 @@ $peminjamData = array(
         <div class="container schedule">
         <h1>Jadwal Peminjaman Ruang Rapat</h1>
         <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Tanggal</th>
-                    <th>Waktu</th>
-                    <th>Keterangan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($peminjamData as $peminjam) {
-                    echo "<tr>";
-                    echo "<td>" . $peminjam[0] . "</td>";
-                    echo "<td>" . $peminjam[1] . "</td>";
-                    echo "<td>" . $peminjam[2] . "</td>";
-                    echo "<td>" . $peminjam[3] . "</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Tanggal</th>
+            <th>Waktu</th>
+            <th>Keterangan</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Loop melalui hasil query dan tampilkan data dalam tabel
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['date'] . "</td>";
+            echo "<td>" . $row['time'] . "</td>";
+            echo "<td>" . $row['description'] . "</td>";
+            echo "</tr>";
+        }
+
+        // Bebaskan hasil query
+        mysqli_free_result($result);
+        ?>
+    </tbody>
+</table>
         </div>
     </div>
 </body>

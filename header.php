@@ -5,7 +5,7 @@ session_start();
 	 <main>
 	 	<?php 
 	 	if(isset($_SESSION["userId"])){
-	 		require 'home.php';
+	 		require 'index.php';
 	 	}else{
 	 		require 'logout.php';
 	 	}	 

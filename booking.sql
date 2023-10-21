@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2023 at 06:24 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Waktu pembuatan: 21 Okt 2023 pada 15.23
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `form`
+-- Struktur dari tabel `form`
 --
 
 CREATE TABLE `form` (
@@ -37,33 +37,40 @@ CREATE TABLE `form` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `form`
+-- Dumping data untuk tabel `form`
 --
 
 INSERT INTO `form` (`id`, `name`, `date`, `time`, `description`, `status`) VALUES
-(12, 'isa', '2023-10-21', 'Pagi (08.00 - 11.00 WIB)', 'Rapat Koordinasi', 'approved'),
-(21, 'angel', '2023-10-23', 'Pagi (08.00 - 11.00 WIB)', 'rapatt', 'approved'),
-(33, 'faniii', '2023-10-20', 'Pagi (08.00 - 11.00 WIB)', 'serah', 'approved');
+(36, 'Angelin Cahyaning', '2023-10-24', 'Pagi (08.00 - 11.00 WIB)', 'Evaluasi kinerja proyek XYZ', 'Rejected'),
+(37, 'M Rifky Nugroho', '2023-10-25', 'Siang (13.00 - 16.00 WIB)', 'Rapat perencanaan Acara HUT RI KE-000', 'Approved'),
+(38, 'Isa Kholifatus Sukhna', '2023-10-27', 'Pagi (08.00 - 11.00 WIB)', 'Evaluasi Pelaksanaan Proses Bisnis ABC', 'Approved'),
+(39, 'Fachrun Nisa\'', '2023-10-27', 'Siang (13.00 - 16.00 WIB)', 'Rapat Isu Keamanan TI', 'Rejected'),
+(40, 'Fachrun Nisa\'', '2023-10-30', 'Siang (13.00 - 16.00 WIB)', 'Rapat Isu Keamanan TI Website SEPEKAN', 'Approved'),
+(41, 'Angelin Cahyaning Sutanto', '2023-10-31', 'Siang (13.00 - 16.00 WIB)', 'Evaluasi Perizinan dan Regulasi', 'Approved'),
+(42, 'Isa Kholifatus Sukhna', '2023-11-03', 'Pagi (08.00 - 11.00 WIB)', 'rapat progress program kerja minggu ke-1 November 2023', 'Rejected'),
+(43, 'Shofiana Primi Rusdiana', '2023-11-06', 'Pagi (08.00 - 11.00 WIB)', 'Rencana Komunikasi dan Informasi Publik', 'Pending'),
+(44, 'Anggun Yuliana Fazri', '2023-12-04', 'Siang (13.00 - 16.00 WIB)', 'Rapat Rencana Pendanaan Riset', 'Approved'),
+(45, 'Angelin Cahyaning', '2023-11-07', 'Pagi (08.00 - 11.00 WIB)', 'Evaluasi Fasilitas Riset', 'Rejected');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `form`
+-- Indeks untuk tabel `form`
 --
 ALTER TABLE `form`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `form`
+-- AUTO_INCREMENT untuk tabel `form`
 --
 ALTER TABLE `form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

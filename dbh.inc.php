@@ -17,14 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $date = $_POST["date"];
         $time = $_POST["time"];
         $description = $_POST["description"];
+        $status = "Pending"; // Status default
 
         // Menyiapkan perintah SQL INSERT
-        $sql = "INSERT INTO form (name, date, time, description) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO form (name, date, time, description, status) VALUES (?,?,?,?,?)";
 
         // Mempersiapkan statement SQL dengan menggunakan prepared statement
         $stmt = $koneksi->prepare($sql);
         if ($stmt) {
-            $stmt->bind_param("ssss", $name, $date, $time, $description);
+            $stmt->bind_param("sssss", $name, $date, $time, $description, $status);
             if ($stmt->execute()) {
                 echo '<script>alert("Formulir terkirim!");</script>';
                 echo '<script>window.location.href = "index.php";</script>';

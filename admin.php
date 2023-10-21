@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
 
     if ($action === 'approve') {
         // Lakukan tindakan persetujuan dengan memperbarui status di database
-        $query = "UPDATE form SET status = 'approved' WHERE id = ?";
+        $query = "UPDATE form SET status = 'Approved' WHERE id = ?";
         $stmt = mysqli_prepare($koneksi, $query);
         mysqli_stmt_bind_param($stmt, "i", $request_id);
         
@@ -28,18 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
             die("Error dalam mengupdate data: " . mysqli_error($koneksi));
         }
     } elseif ($action === 'reject') {
-        // Lakukan tindakan penolakan dengan menghapus data dari database
-        $query = "DELETE FROM form WHERE id = ?";
+        // Lakukan tindakan penolakan dengan memperbarui status di database
+        $query = "UPDATE form SET status = 'Rejected' WHERE id = ?";
         $stmt = mysqli_prepare($koneksi, $query);
         mysqli_stmt_bind_param($stmt, "i", $request_id);
         
         if (mysqli_stmt_execute($stmt)) {
-            // Hapus berhasil
+            // Perbarui berhasil
             header("Location: admin.php");
             exit;
         } else {
-            // Kesalahan dalam menghapus data
-            die("Error dalam menghapus data: " . mysqli_error($koneksi));
+            // Kesalahan dalam perbarui
+            die("Error dalam mengupdate data: " . mysqli_error($koneksi));
         }
     }
 }
@@ -51,7 +51,6 @@ $result = mysqli_query($koneksi, $query);
 if (!$result) {
     die("Error dalam eksekusi query: " . mysqli_error($koneksi));
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -85,22 +84,22 @@ if (!$result) {
                         echo "<td>" . $row['time'] . "</td>";
                         echo "<td>" . $row['description'] . "</td>";
                         echo '<td>';
-                        echo '<form method="post">';
-                        echo '<input type="hidden" name="action" value="approve">';
-                        if (isset($row['id'])) {
-                          echo '<input type="hidden" name="request_id" value="' . $row['id'] . '">';
+                        if ($row['status'] == 'Approved' || $row['status'] == 'Rejected') {
+                            // Jika status sudah "Approved" atau "Rejected", tampilkan status
+                            echo $row['status'];
+                        } else {
+                            // Jika status masih "Pending", tampilkan tombol Approve dan Reject
+                            echo '<form method="post">';
+                            echo '<input type="hidden" name="action" value="approve">';
+                            echo '<input type="hidden" name="request_id" value="' . $row['id'] . '">';
+                            echo '<button type="submit" class="approve-btn">Approve</button>';
+                            echo '</form>';
+                            echo '<form method="post">';
+                            echo '<input type="hidden" name="action" value="reject">';
+                            echo '<input type="hidden" name="request_id" value="' . $row['id'] . '">';
+                            echo '<button type="submit" class="reject-btn">Reject</button>';
+                            echo '</form>';
                         }
-                        echo '<button type="submit" class="approve-btn">Approve</button>';
-                        echo '</form>';
-                        echo '<form method="post">';
-                        echo '<input type="hidden" name="action" value="reject">';
-                        if (isset($row['id'])) {
-                          echo '<input type="hidden" name="request_id" value="' . $row['id'] . '">';
-                        }
-                        echo '<button type="submit" class="reject-btn">Reject</button>';
-                        echo '</form>';    
-                        echo '</form>';
-                        echo '</td>';
                         echo '</td>';
                         echo '</tr>';
                     }
